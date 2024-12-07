@@ -10,6 +10,4 @@ typedef long long ll;
 
 int read_input(const char* filename, int* leftNums, int* rightNums);
 
-ll listDist(int* leftNums, int* rightNums, int size);
-
 #endif // COMMONS1_H

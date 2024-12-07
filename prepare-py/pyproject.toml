@@ -1,0 +1,10 @@
+[project]
+name= "prepare-py"
+version= "2024.0.0"
+requires-python = ">= 3.10"
+
+[tool.mypy]
+warn_return_any = "true"
+warn_unused_configs = true
+disallow_untyped_defs = "true"
+python_version = "3.12"

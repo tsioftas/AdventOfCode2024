@@ -67,8 +67,8 @@ def _prepare_files_recursive(
 
 def clear_dir(root: Path) -> None:
     for child in root.iterdir():
-        if child != Path(__file__):
-            shutil.rmtree(child) if child.is_dir() else os.remove(child)
+        if child.is_dir() and child.name.startswith("Day "):
+            shutil.rmtree(child)
 
 
 def prepare_files(root: Path, day: int) -> None:
@@ -77,6 +77,6 @@ def prepare_files(root: Path, day: int) -> None:
 
 if __name__ == "__main__":
     cwd = Path(os.getcwd())
-    # clear_dir(cwd)
+    clear_dir(cwd)
     for day in range(1, 26):
         prepare_files(cwd, day)

@@ -4,6 +4,4 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 #endif // COMMONS18_H

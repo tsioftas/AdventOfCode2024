@@ -5,11 +5,13 @@ from pathlib import Path
 from string import Template
 
 MAKEFILE_TEMPLATE = Template("""\
-${day}_1: ${day}_1.cpp ${day}_commons.cpp
-    g++ -o ${day}_1.tsk ${day}_1.cpp ${day}_commons.cpp
+include ../Makefile.config
 
-${day}_2: ${day}_2.cpp ${day}_commons.cpp
-    g++ -o ${day}_2.tsk ${day}_2.cpp ${day}_commons.cpp
+${day}_1 : ${day}_1.cpp ${day}_commons.cpp
+\t$${COMPILER} $${COMPILER_OPTS} -o ${day}_1.tsk ${day}_1.cpp ${day}_commons.cpp
+
+${day}_2 : ${day}_2.cpp ${day}_commons.cpp
+\t$${COMPILER} $${COMPILER_OPTS} -o ${day}_2.tsk ${day}_2.cpp ${day}_commons.cpp
 """)
 
 CPP_TEMPLATE = Template("""\
@@ -33,8 +35,6 @@ COMMONS_HEADER_TEMPLATE = Template("""\
 
 #include <bits/stdc++.h>
 using namespace std;
-
-
 
 #endif // COMMONS${day}_H
 """)
@@ -77,6 +77,6 @@ def prepare_files(root: Path, day: int) -> None:
 
 if __name__ == "__main__":
     cwd = Path(os.getcwd())
-    clear_dir(cwd)
+    # clear_dir(cwd)
     for day in range(1, 26):
         prepare_files(cwd, day)

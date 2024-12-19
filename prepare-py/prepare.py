@@ -17,8 +17,6 @@ ${day}_2 : ${day}_2.cpp ${day}_commons.cpp
 CPP_TEMPLATE = Template("""\
 #include "${day}_commons.h"
 
-using namespace std;
-
 int main() {
 
     return 0;
